@@ -1,93 +1,92 @@
 # タスくん (Taskun)
 
-シンプルで直感的なタスク管理アプリケーション。必要な機能だけを、必要なだけ。
+シンプルで直感的なタスク管理ツール。必要な機能だけを、必要なだけ。
 
 ## 機能
 
 - タスクの追加・編集・削除
-- タスクの完了状態管理
-- 優先度の設定（低・中・高）
-- 期限日の設定
-- モダンでレスポンシブなUI
-- ローカルストレージによるデータ永続化
+- 期限の設定
+- 優先度の管理（高・中・低）
+- タスクの完了管理
+- レスポンシブデザイン
 
 ## 技術スタック
 
-- フロントエンド
+- **フロントエンド**
+
   - HTML5
   - CSS3
   - JavaScript (Vanilla)
-- バックエンド
-  - SQLite3（予定）
-- デプロイ
-  - XServer VPS（予定）
 
-## 開発環境のセットアップ
+- **バックエンド**
+  - Python 3.8+
+  - Flask
+  - SQLite3
+
+## セットアップ
 
 1. リポジトリのクローン
 
 ```bash
-git clone git@github.com:izag8216/taskun.git
+git clone https://github.com/yourusername/taskun.git
 cd taskun
 ```
 
-2. ローカルサーバーの起動
+2. Pythonの依存関係をインストール
 
 ```bash
-# Pythonの組み込みサーバーを使用する場合
-python3 -m http.server 3000
+pip install -r requirements.txt
 ```
 
-3. ブラウザでアクセス
+3. データベースの初期化
+
+```bash
+sqlite3 db/tasks.db < db/schema.sql
+```
+
+4. アプリケーションの起動
+
+```bash
+python app.py
+```
+
+5. ブラウザでアクセス
 
 ```
-http://localhost:3000
+http://localhost:5000
 ```
 
 ## プロジェクト構造
 
 ```
 taskun/
-├── index.html      # メインのHTML
+├── app.py              # Flaskアプリケーション
+├── index.html         # メインページ
 ├── css/
-│   └── style.css   # スタイル定義
+│   └── style.css     # スタイルシート
 ├── js/
-│   └── app.js      # JavaScript機能
+│   └── app.js        # フロントエンドロジック
 └── db/
-    └── schema.sql  # SQLiteスキーマ
+    └── schema.sql    # データベーススキーマ
 ```
 
-## 開発ロードマップ
+## デプロイ
 
-1. フェーズ1（完了）
+1. サーバー環境の準備
+2. 必要なパッケージのインストール
+3. データベースの初期化
+4. サービスの設定と起動
 
-   - 基本的なタスク管理機能の実装
-   - モダンなUI/UXデザイン
-   - ローカルストレージによるデータ管理
-
-2. フェーズ2（予定）
-
-   - SQLiteによるデータベース実装
-   - XServer VPSへのデプロイ
-   - セキュリティ強化
-
-3. フェーズ3（予定）
-   - ユーザー認証機能
-   - タスクの共有機能
-   - カテゴリ管理機能
-
-## 貢献
-
-1. このリポジトリをフォーク
-2. 新しいブランチを作成 (`git checkout -b feature/amazing-feature`)
-3. 変更をコミット (`git commit -m 'Add some amazing feature'`)
-4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
-5. プルリクエストを作成
+詳細な手順は各サーバー環境に応じて調整してください。
 
 ## ライセンス
 
-[MIT License](LICENSE)
+MIT License
 
 ## 作者
 
-itomaru
+Itomaru
+
+## 謝辞
+
+このプロジェクトは、XServer VPSを使用した実践的な学習の一環として作成されました。

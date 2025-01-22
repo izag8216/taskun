@@ -3,48 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タスくん - シンプルで賢いタスク管理</title>
+    <title>タスくん - シンプルなタスク管理</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>シンプルだから、<br>できることが増える。</h1>
-                <p class="subtitle">必要な機能だけを、必要なだけ。<br>タスク管理をもっと快適に、もっとスマートに。</p>
-                <button id="addTaskBtn" class="add-btn" title="新しいタスクを追加">＋</button>
-            </div>
-        </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>シンプルだから<br>できることが増える</h1>
+            <p class="subtitle">必要な機能だけを、必要なだけ。<br>タスク管理をもっと快適に、もっとスマートに。</p>
+        </div>
+    </section>
 
-        <main>
-            <div id="taskList" class="task-list">
-                <!-- タスクがここに動的に追加されます -->
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>シンプルな操作性</h3>
+                <p>必要最小限の機能だけを搭載。<br>迷うことなくタスクに集中できます。</p>
             </div>
-        </main>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>直感的な管理</h3>
+                <p>タスクの追加も削除も簡単。<br>ストレスフリーな管理を実現。</p>
+            </div>
+        </div>
+    </section>
 
-        <div id="taskModal" class="modal">
-            <div class="modal-content">
-                <h2>タスクを追加</h2>
-                <form id="taskForm">
-                    <input type="text" id="taskTitle" placeholder="タイトル" required maxlength="100">
-                    <textarea id="taskDescription" placeholder="説明" maxlength="500"></textarea>
-                    <input type="date" id="taskDueDate">
-                    <select id="taskPriority">
-                        <option value="0">優先度: 低</option>
-                        <option value="1">優先度: 中</option>
-                        <option value="2">優先度: 高</option>
+    <!-- Task Management Section -->
+    <section class="task-section">
+        <div class="task-container">
+            <div class="task-input-container">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="新しいタスクを入力...">
+                    <input type="date" id="dueDateInput">
+                    <select id="priorityInput">
+                        <option value="low">優先度: 低</option>
+                        <option value="medium" selected>優先度: 中</option>
+                        <option value="high">優先度: 高</option>
                     </select>
-                    <div class="form-buttons">
-                        <button type="button" class="cancel-btn">キャンセル</button>
-                        <button type="submit">保存</button>
-                    </div>
-                </form>
+                </div>
+                <button id="addTaskButton" class="add-btn">＋</button>
+            </div>
+            <ul id="taskList" class="task-list">
+                <!-- タスクはJavaScriptで動的に追加されます -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Edit Task Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>タスクの編集</h2>
+            <input type="text" id="editTaskInput" placeholder="タスク名">
+            <input type="date" id="editDueDateInput">
+            <select id="editPriorityInput">
+                <option value="low">優先度: 低</option>
+                <option value="medium">優先度: 中</option>
+                <option value="high">優先度: 高</option>
+            </select>
+            <div class="modal-buttons">
+                <button id="saveTaskButton">保存</button>
+                <button id="cancelEditButton">キャンセル</button>
             </div>
         </div>
     </div>
-    <script src="js/app.js"></script>
+
+    <script src="js/app.js?v=5"></script>
 </body>
-</html> 
+</html>
